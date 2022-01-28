@@ -1,0 +1,216 @@
+/*HP*/
+@media (max-width: 767.98px) {
+
+    .form-control,
+    .input-group-text,
+    .form-text,
+    .form-select,
+    .button .btn-primary,
+    .button .btn-secondary,
+    .button-global .btn-primary,
+    .button-global .btn-success,
+    .table-responsive,
+    .table-responsive .btn-primary,
+    .table-responsive .btn-danger,
+    .table-responsive .btn-success,
+    .modal-footer .btn-secondary,
+    .buttons-excel,
+    .buttons-collection,
+    .profile .nav-item,
+    .revenue-card .akun,
+    .customers-card .akun,
+    .viewData,
+    #akunMedia .btn-danger,
+    #form-pengajuan .list-group,
+    #profile-overview .col-lg-9,
+    #profile-edit .btn-primary,
+    #profile-change-password .btn-primary {
+        font-size: 12px;
+    }
+
+    #form-pengajuan nav ul {
+        font-size: 11px;
+    }
+
+    .footer .copyright {
+        font-size: 12px;
+    }
+
+    #form-pengajuan #form {
+        padding: 0 1em 1em 1em;
+    }
+
+    #divImageMediaPreview img {
+        max-width: 100px;
+    }
+
+    .dashboard .info-card h6,
+    .card1 .card-title {
+        font-size: 16px;
+    }
+}
+
+/*DESKTOP*/
+@media (min-width: 992px) {
+    #form-pengajuan #form {
+        padding: 0 3em 3em 3em;
+    }
+
+    .form-control,
+    .input-group-text,
+    #form-pengajuan .list-group,
+    .form-text,
+    .form-select,
+    .button .btn-primary,
+    .button .btn-secondary,
+    .button-global .btn-primary,
+    .button-global .btn-success,
+    .table-responsive,
+    .table-responsive .btn-primary,
+    .table-responsive .btn-danger,
+    .table-responsive .btn-success,
+    .modal-footer .btn-secondary,
+    .buttons-excel,
+    .buttons-collection,
+    .profile .nav-item,
+    .revenue-card .akun,
+    .viewData,
+    .customers-card .akun,
+    #akunMedia .btn-danger,
+    #profile-overview .col-lg-9,
+    #profile-edit .btn-primary,
+    #profile-change-password .btn-primary {
+        font-size: 14px !important;
+    }
+
+    #divImageMediaPreview img {
+        padding: 8px;
+        max-width: 150px;
+    }
+
+    .dashboard .info-card h6,
+    .card1 .card-title {
+        font-size: 16px;
+    }
+}
+
+/* pad */
+@media (min-width:576px) {
+    #form-pengajuan #form {
+        padding: 0 2em 2em 2em;
+    }
+
+    .form-control,
+    .input-group-text,
+    #form-pengajuan .list-group,
+    .form-text,
+    .form-select,
+    .button .btn-primary,
+    .button .btn-secondary,
+    .button-global .btn-success,
+    .button-global .btn-primary,
+    .table-responsive,
+    .table-responsive .btn-primary,
+    .table-responsive .btn-danger,
+    .table-responsive .btn-success,
+    .modal-footer .btn-secondary,
+    .buttons-excel,
+    .buttons-collection,
+    .profile .nav-item,
+    .revenue-card .akun,
+    .customers-card .akun,
+    .viewData,
+    #akunMedia .btn-danger,
+    #profile-overview .col-lg-9,
+    #profile-edit .btn-primary,
+    #profile-change-password .btn-primary {
+        font-size: 14px;
+    }
+
+    #divImageMediaPreview img {
+        padding: 8px;
+        max-width: 150px;
+    }
+
+    .dashboard .info-card h6,
+    .card1 .card-title {
+        font-size: 16px;
+    }
+}
+
+
+@media (min-width:1200px) {
+    #form-pengajuan #form {
+        padding: 0 3em 3em 3em;
+    }
+
+    #divImageMediaPreview img {
+        padding: 8px;
+        max-width: 150px;
+    }
+
+
+}
+
+.dt-button-collection .dropdown-menu .dropdown-item:hover {
+    background-color: rgb(105, 162, 247);
+}
+
+.pw span {
+    position: absolute;
+    height: 25px;
+    display: inline-grid;
+    align-items: end;
+    z-index: 99;
+    right: 25px;
+}
+
+.go-corner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    background-color: #00838d;
+    border-radius: 0 4px 0 32px;
+}
+
+.go-arrow {
+    margin-top: -4px;
+    margin-right: -4px;
+    color: white;
+    font-family: courier, sans;
+}
+
+.card1 {
+    display: block;
+    position: relative;
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 0;
+    overflow: hidden;
+    color: #012970;
+}
+
+.card1 a {
+    text-decoration: none;
+    color: #012970;
+}
+
+.viewData {
+    text-align: center;
+    text-decoration: none;
+    background-color: #00838d;
+    padding: 8px 0;
+    transition: .7s;
+    color: white;
+    border-top: .5px solid #fff;
+}
+
+.viewData:hover {
+    color: white;
+}
