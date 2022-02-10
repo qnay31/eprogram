@@ -60,6 +60,12 @@ include 'base/header.php'
         include 'forms/edit_laporan.php';
     ?>
 
+    <!-- laporan perkembangan -->
+    <?php } elseif ($_GET["id_perkembangan"] == "perkembanganYatim") { ?>
+    <?php
+        include 'laporan/perkembangan.php';
+    ?>
+
     <!-- myProfil -->
     <?php } elseif ($_GET["id_profil"] == "myProfil") { ?>
     <?php

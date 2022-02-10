@@ -26,7 +26,7 @@
                     </a>
                 </li>
                 <?php } else { ?>
-                <?php if ($_SESSION["id_pengurus"] == "guru") { ?>
+                <?php if ($_SESSION["id_pengurus"] == "guru" || $_SESSION["id_pengurus"] == "kepala_program") { ?>
                 <li>
                     <a class="dropdown-item d-flex align-items-center"
                         href="<?= $_SESSION["username"] ?>.php?id_profil=myProfil">
@@ -35,6 +35,7 @@
                     </a>
                 </li>
                 <?php } ?>
+
                 <?php } ?>
 
                 <li>

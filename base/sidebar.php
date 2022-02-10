@@ -10,6 +10,14 @@
             </a>
         </li>
 
+        <?php } elseif ($_GET["id_perkembangan"] == true) { ?>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $_SESSION["username"] ?>.php">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
         <?php } elseif ($_GET["id_profil"] == true) { ?>
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= $_SESSION["username"] ?>.php">
@@ -26,6 +34,23 @@
             </a>
         </li>
 
+        <?php } ?>
+
+        <?php if ($_GET["id_perkembangan"] == "perkembanganYatim") { ?>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= $_SESSION["username"] ?>.php?id_perkembangan=perkembanganYatim">
+                <i class="bi bi-book-half"></i>
+                <span>Laporan Perkembangan</span>
+            </a>
+        </li>
+
+        <?php } else { ?>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $_SESSION["username"] ?>.php?id_perkembangan=perkembanganYatim">
+                <i class="bi bi-book-half"></i>
+                <span>Laporan Perkembangan</span>
+            </a>
+        </li>
         <?php } ?>
 
         <!-- End Database Nav -->
