@@ -8,34 +8,6 @@ $(document).ready(function () {
         $(this).find('form').trigger('reset');
     });
 
-    $("#alamat").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#ttl").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#ibu").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#ayah").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#sekolah").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#kelas").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
-    $("#laporan").on('hidden.bs.modal', function () {
-        $(this).find('form').trigger('reset');
-    });
-
     load_data();
 
     function load_data(keyword) {

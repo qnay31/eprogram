@@ -251,32 +251,35 @@ return mysqli_affected_rows($conn);
 
 }
 
-// edit nama lengkap
-function ubah_nama($data)
+// edit profil yatim
+function ubah_profilYatim($data)
 {
 global $conn;
 
 $id = htmlspecialchars($data["id"]);
 $yatim = htmlspecialchars($data["nama"]);
 $namaNew = htmlspecialchars(mysqli_real_escape_string($conn, $data["namaNew"]));
+$alamat = htmlspecialchars(mysqli_real_escape_string($conn, $data["alamat"]));
+$tempatLahir = htmlspecialchars(mysqli_real_escape_string($conn, $data["tempatLahir"]));
+$tanggalLahir = htmlspecialchars($data["tanggalLahir"]);
+$namaIbu = htmlspecialchars(mysqli_real_escape_string($conn, $data["namaIbu"]));
+$namaAyah = htmlspecialchars(mysqli_real_escape_string($conn, $data["namaAyah"]));
+$sekolah = htmlspecialchars(mysqli_real_escape_string($conn, $data["sekolah"]));
+$kelas = htmlspecialchars(mysqli_real_escape_string($conn, $data["kelas"]));
 $ip = get_client_ip();
 $date = date("Y-m-d H:i:s");
 $pukul = date("H:i:s");
 
-$query = mysqli_query($conn, "SELECT nama_yatim FROM data_yatim WHERE nama_yatim = '$namaNew' ");
-
-if (mysqli_fetch_assoc($query)) {
-
-echo "<script>
-alert('Nama yatim ini sudah ada');
-</script>";
-
-return false;
-}
-
 // update
 $update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`nama_yatim` ='$namaNew'
+`nama_yatim` ='$namaNew',
+`alamat` ='$alamat',
+`tempatLahir` ='$tempatLahir',
+`tgl_lahir` = '$tanggalLahir',
+`nama_ibu` ='$namaIbu',
+`nama_ayah` ='$namaAyah',
+`asal_sekolah` ='$sekolah',
+`kelas` ='$kelas'
 WHERE id = '$id' ");
 
 $update2 = mysqli_query($conn, "UPDATE `perkembangan_yatim` SET
@@ -286,173 +289,7 @@ WHERE nama_yatim = '$yatim' ");
 // die(var_dump($result));
 
 mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah nama lengkap anak yatim $yatim yatim menjadi $namaNew')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// edit alamat yatim
-function ubah_alamat($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$alamat = htmlspecialchars(mysqli_real_escape_string($conn, $data["alamat"]));
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`alamat` ='$alamat'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah alamat anak $yatim yatim menjadi $alamat')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// edit tempat lahir
-function ubah_lahir($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$tempatLahir = htmlspecialchars(mysqli_real_escape_string($conn, $data["tempatLahir"]));
-$tanggalLahir = htmlspecialchars($data["tanggalLahir"]);
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`tempatLahir` ='$tempatLahir',
-`tgl_lahir` = '$tanggalLahir'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah tempat serta tanggal kelahiran anak $yatim yatim menjadi
-$lahir')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// edit nama ibu
-function ubah_ibu($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$namaIbu = htmlspecialchars(mysqli_real_escape_string($conn, $data["namaIbu"]));
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`nama_ibu` ='$namaIbu'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah nama ibu dari anak $yatim yatim menjadi $namaIbu')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// edit nama ayah
-function ubah_ayah($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$namaAyah = htmlspecialchars(mysqli_real_escape_string($conn, $data["namaAyah"]));
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`nama_ayah` ='$namaAyah'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah nama ayah dari anak $yatim yatim menjadi $namaAyah')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// ubah asal sekolah
-function ubah_sekolah($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$sekolah = htmlspecialchars(mysqli_real_escape_string($conn, $data["sekolah"]));
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`asal_sekolah` ='$sekolah'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah asal sekolah dari anak $yatim yatim menjadi
-$sekolah')");
-
-// die(var_dump($result));
-return mysqli_affected_rows($conn);
-
-}
-
-// edit kelas
-function ubah_kelas($data)
-{
-global $conn;
-
-$id = htmlspecialchars($data["id"]);
-$yatim = htmlspecialchars($data["nama"]);
-$kelas = htmlspecialchars(mysqli_real_escape_string($conn, $data["kelas"]));
-$ip = get_client_ip();
-$date = date("Y-m-d H:i:s");
-$pukul = date("H:i:s");
-
-// update perkembangan
-$update = mysqli_query($conn, "UPDATE `data_yatim` SET
-`kelas` ='$kelas'
-WHERE id = '$id' ");
-
-// die(var_dump($result));
-
-mysqli_query($conn, "INSERT INTO 2022_log_aktivity VALUES('', '$_SESSION[nama]', '$_SESSION[posisi]', '$ip', '$date',
-'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah kelas dari anak $yatim yatim menjadi $kelas')");
+'$_SESSION[nama] sebagai $_SESSION[posisi] telah mengubah memperbarui profil yatim yang bernama $namaNew')");
 
 // die(var_dump($result));
 return mysqli_affected_rows($conn);

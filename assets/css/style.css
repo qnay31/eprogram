@@ -18,6 +18,10 @@ body {
   color: #444444;
 }
 
+.profile-card .modal-content {
+  font-family: "Open Sans", sans-serif;
+}
+
 a {
   color: #4154f1;
   text-decoration: none;
