@@ -29,6 +29,8 @@ $ip     = get_client_ip();
 
             if($row['username'] == "$username"){
         $_SESSION["halaman_utama"]      = true ;
+
+        setcookie('login', 'true', time() + 43200 );
         
 		// buat session login dan username ADMIN
 		$_SESSION["id"]           = $row["id"];

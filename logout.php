@@ -21,8 +21,7 @@ $SESSION = [];
 session_destroy();
 session_unset();
 
-setcookie('id', '', time() - 3600);
-setcookie('key', '', time() -3600);
+setcookie('login', '', time() - 43200);
 
 header("Location: index.php");
 exit;
