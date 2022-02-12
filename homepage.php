@@ -17,6 +17,7 @@ $home_query = mysqli_query($conn, "SELECT * FROM akun_pengurus WHERE username = 
 $home_data  = mysqli_fetch_assoc($home_query);
 $nama       = $home_data['nama'];
 $profil     = $home_data['profil'];
+$_SESSION["profil"] = $profil;
 
 ?>
 <!DOCTYPE html>

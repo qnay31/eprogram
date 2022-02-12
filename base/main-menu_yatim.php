@@ -1,9 +1,15 @@
 <?php
 
 $Account    = $_GET["id_akun"];
+$_SESSION["id_yatim"] = $Account;
 
 $qYatim     = mysqli_query($conn, "SELECT * FROM data_yatim WHERE id = '$Account'");
 $dYatim     = mysqli_fetch_assoc($qYatim);
+
+$qFoto      = mysqli_query($conn, "SELECT * FROM foto_yatim WHERE nomor_id = '$Account'");
+$nums       = $qFoto->num_rows;
+$dFoto      = mysqli_fetch_assoc($qFoto);
+$newProfil  = $dFoto["foto"];
 
 $q     = mysqli_query($conn, "SELECT * FROM perkembangan_yatim WHERE nama_yatim = '$dYatim[nama_yatim]'");
 
@@ -69,9 +75,75 @@ if ($_GET["id_profil"] == "") {
     <section class="section profile">
         <div class="row">
             <div class="col-xl-4">
-                <div class="card">
+                <div class="card cardProfil">
                     <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-                        <img src="../assets/img/icons/<?= $profil ?>" alt="Profile" class="rounded-circle">
+                        <div class="image_area">
+                            <form method="post">
+                                <label for="upload_image">
+                                    <?php if ($nums === 1) { ?>
+                                    <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
+                                    <div class="icon-image">
+                                        <i class="bi bi-camera-fill"></i>
+                                    </div>
+
+                                    <?php } ?>
+
+                                    <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
+                                        class="img-responsive rounded-circle" />
+
+                                    <?php } else { ?>
+                                    <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
+                                    <div class="icon-image">
+                                        <i class="bi bi-camera-fill"></i>
+                                    </div>
+
+                                    <?php } ?>
+
+                                    <img src="../assets/img/icons/<?= $profil ?>" id="uploaded_image"
+                                        class="img-responsive rounded-circle" />
+                                    <?php } ?>
+                                    <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
+                                    <div class="overlay">
+                                        <div class="text">Ubah Foto</div>
+                                    </div>
+                                    <input type="file" name="image" class="image" id="upload_image" style="display:none"
+                                        accept=".jpg,.jpeg,.png">
+
+                                    <?php } else { ?>
+
+                                    <?php } ?>
+                                </label>
+                            </form>
+                        </div>
+                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="modalLabel">Atur gambar sebelum diupload</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="img-container">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <img src="" id="sample_image" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="preview"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Kembali</button>
+                                        <button type="button" class="btn btn-primary" id="crop">Crop</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <h2><?= ucwords($dYatim["nama_yatim"]) ?></h2>
                         <h3>Yatim <?= $dYatim["cabang"] ?></h3>
                     </div>
@@ -224,15 +296,15 @@ if ($_GET["id_profil"] == "") {
 
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label ">Nama Lengkap</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Nama Lengkap</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?= ucwords($dYatim["nama_yatim"]) ?>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label ">Usia</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Usia</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["tempatLahir"] == "") { ?>
                                         Tidak Ada Info
 
@@ -253,8 +325,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">Alamat</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Alamat</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["alamat"] == "") { ?>
                                         Tidak Ada Info
 
@@ -265,8 +337,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">TTL</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">TTL</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
 
                                         <?php if ($dYatim["tempatLahir"] == "") { ?>
                                         Tidak Ada Info
@@ -279,8 +351,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">Nama Ibu</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Nama Ibu</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["nama_ibu"] == "") { ?>
                                         Tidak Ada Info
 
@@ -291,8 +363,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">Nama Ayah (Alm)</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Nama Ayah (Alm)</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["nama_ayah"] == "") { ?>
                                         Tidak Ada Info
 
@@ -303,8 +375,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">Sekolah Asal</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Sekolah Asal</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["asal_sekolah"] == "") { ?>
                                         Tidak Ada Info
 
@@ -315,8 +387,8 @@ if ($_GET["id_profil"] == "") {
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-lg-4 col-md-4 label">Kelas</div>
-                                    <div class="col-lg-8 col-md-8">
+                                    <div class="col-lg-4 col-md-4 label deskripsiYatim">Kelas</div>
+                                    <div class="col-lg-8 col-md-8 deskripsiYatim">
                                         <?php if ($dYatim["kelas"] == "") { ?>
                                         Tidak Ada Info
 

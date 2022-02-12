@@ -6,6 +6,11 @@ require 'function.php';
 $date   = date("Y-m-d H:i:s");
 $ip     = get_client_ip();
 
+if (isset($_SESSION["halaman_utama"])) {
+    header("Location: admin/$_SESSION[username].php");
+    exit;
+}
+
   if (isset($_POST["login"]) ) {
 
     $username    = $_POST ["username"];

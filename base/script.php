@@ -23,6 +23,14 @@
 </script>
 <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.3/js/dataTables.select.min.js"></script>
 
+<script src="../assets/js/splide.js"></script>
+
+<?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
+<script src="https://unpkg.com/dropzone"></script>
+<script src="https://unpkg.com/cropperjs"></script>
+
+<?php } ?>
+
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
 <script src="../assets/js/sub-main.js?v=<?= filemtime('../assets/js/sub-main.js'); ?>"></script>

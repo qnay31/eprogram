@@ -1,3 +1,19 @@
+// document.addEventListener("DOMContentLoaded", function() {
+//     var splide = new Splide( '.splide', {
+//         direction: 'ttb',
+//         height   : '20rem',
+//         wheel    : true,
+//         // gap        : '1.4rem',
+//         breakpoints: {
+//             765: {
+//                 perPage: 1,
+//             },
+//         }
+//     } );
+    
+//     splide.mount();
+// });
+
 $(".toggle-password").click(function () {
 
     $(this).toggleClass("fa-eye fa-eye-slash");

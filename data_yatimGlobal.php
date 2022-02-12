@@ -1,6 +1,7 @@
 <div class="row">
     <?php
-    session_start();
+        error_reporting(0);
+        session_start();
         require 'function.php';
         
         $s_keyword="";
@@ -38,9 +39,20 @@
                     </h5>
 
                     <div class="d-flex align-items-center">
-                        <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                            <i class="bi bi-person"></i>
-                        </div>
+                        <?php
+                            $qFoto      = mysqli_query($conn, "SELECT * FROM foto_yatim WHERE nomor_id = '$id'");
+                            $nums       = $qFoto->num_rows;
+                            $dFoto      = mysqli_fetch_assoc($qFoto);
+                            $newProfil  = $dFoto["foto"];
+                        ?>
+                        <?php if ($nums === 1) { ?>
+                        <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
+                            class="img-responsive rounded-circle" />
+
+                        <?php } else { ?>
+                        <img src="../assets/img/icons/<?= $_SESSION["profil"] ?>" id="uploaded_image"
+                            class="img-responsive rounded-circle" />
+                        <?php } ?>
                         <div class="ps-3">
                             <span class="akun"> Nama : <?= ucwords($nama_yatim) ?>
                             </span>

@@ -13,6 +13,7 @@ if ($_SESSION["id_pengurus"] == "ketua_yayasan") {
 
 // die(var_dump($$namaBaru[$n]));
 ?>
+
 <!-- Card -->
 <div class="col-xxl-12">
     <div class="card info-card customers-card">
@@ -37,6 +38,7 @@ if ($_SESSION["id_pengurus"] == "ketua_yayasan") {
                     </div>
                 </div>
             </div>
+
             <div class="data_global"></div>
             <?php } ?>
 
