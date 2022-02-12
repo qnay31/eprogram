@@ -40,6 +40,7 @@
                     <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
                         class="img-responsive rounded-circle" />
 
+
                     <?php } else { ?>
                     <img src="../assets/img/icons/<?= $_SESSION["profil"] ?>" id="uploaded_image"
                         class="img-responsive rounded-circle" />
