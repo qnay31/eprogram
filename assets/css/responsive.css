@@ -257,7 +257,7 @@
 
 .overlay {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 0;
     right: 0;
     background-color: rgba(255, 255, 255, 0.5);
@@ -297,4 +297,65 @@
 .customers-card .card1 img,
 .revenue-card .bg img {
     max-width: 70px;
+}
+
+.thumbnail {
+    position: relative;
+    z-index: 0;
+    cursor: zoom-in;
+}
+
+.thumbnail:hover {
+    background-color: transparent;
+    z-index: 50;
+}
+
+.thumbnail span {
+    /*CSS for enlarged image*/
+    position: absolute;
+    left: -1000px;
+    visibility: hidden;
+    color: black;
+    text-decoration: none;
+}
+
+.thumbnail span img {
+    /*CSS for enlarged image*/
+    border-width: 0;
+    padding: 2px;
+}
+
+.thumbnail:hover span {
+    /*CSS for enlarged image on hover*/
+    visibility: visible;
+    top: 0;
+    left: 10px;
+    width: 200px;
+    transition: .9s;
+    /*position where enlarged image should offset horizontally */
+
+}
+
+.customers-card .card1 span img,
+.revenue-card .bg span img {
+    max-width: 78% !important;
+    position: absolute;
+    top: -85px;
+    left: -30px;
+}
+
+.icon-profile {
+    position: absolute;
+    bottom: 0;
+    right: -5px;
+}
+
+.icon-profile .bi {
+    font-size: 1.3em;
+    color: #00838d;
+}
+
+.delete-profil .bi {
+    font-size: 1.3em;
+    color: red;
 }

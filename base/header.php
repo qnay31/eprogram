@@ -27,8 +27,6 @@
     <link href="../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
     <?php } ?>
 
-    <link rel="stylesheet" href="../assets/css/splide.min.css">
-
     <!-- datatable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" type="text/css"
@@ -37,6 +35,10 @@
     <!-- searchPane -->
     <link rel="stylesheet" href="https://cdn.datatables.net/searchpanes/1.4.0/css/searchPanes.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/select/1.3.3/css/select.bootstrap5.min.css">
+
+    <!-- splide -->
+    <link rel="stylesheet" href="../assets/css/splide.min.css">
+    <link rel="stylesheet" href="../assets/css/themes/splide-skyblue.min.css">
 
     <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
     <link rel="stylesheet" href="https://unpkg.com/dropzone/dist/dropzone.css" />

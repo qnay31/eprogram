@@ -1,18 +1,26 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//     var splide = new Splide( '.splide', {
-//         direction: 'ttb',
-//         height   : '20rem',
-//         wheel    : true,
-//         // gap        : '1.4rem',
-//         breakpoints: {
-//             765: {
-//                 perPage: 1,
-//             },
-//         }
-//     } );
-    
-//     splide.mount();
-// });
+document.addEventListener("DOMContentLoaded", function() {
+    new Splide( '#splide', {
+        speed: number = 2000,
+        perPage  : 3,
+        gap        : '1.4rem',
+        breakpoints: {
+            765: {
+                perPage: 1,
+            },
+        }
+    } ).mount();
+
+    new Splide( '#splide2', {
+        speed: number = 2000,
+        perPage  : 3,
+        gap        : '1.4rem',
+        breakpoints: {
+            765: {
+                perPage: 1,
+            },
+        }
+    } ).mount();
+});
 
 $(".toggle-password").click(function () {
 

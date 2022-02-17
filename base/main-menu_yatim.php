@@ -90,7 +90,6 @@ if ($_GET["id_profil"] == "") {
 
                                     <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
                                         class="img-responsive rounded-circle" />
-
                                     <?php } else { ?>
                                     <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
                                     <div class="icon-image">
@@ -115,6 +114,16 @@ if ($_GET["id_profil"] == "") {
                                 </label>
                             </form>
                         </div>
+
+                        <?php if ($nums === 1 && $_SESSION["id_pengurus"] == "kepala_program") { ?>
+                        <div class="delete-profil">
+                            <a href="../profil/hapus_fotoProfil.php?id_unik=<?= $_SESSION["id_yatim"] ?>"
+                                onclick="return confirm('Hapus foto profil?!')">
+                                <i class="bi bi-trash" data-bs-toggle="tooltip" data-bs-placement="right"
+                                    title="Hapus Foto"></i>
+                            </a>
+                        </div>
+                        <?php } ?>
                         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">

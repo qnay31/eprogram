@@ -46,12 +46,27 @@
                             $newProfil  = $dFoto["foto"];
                         ?>
                         <?php if ($nums === 1) { ?>
-                        <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
-                            class="img-responsive rounded-circle" />
+                        <div class="profile-picture">
+
+                            <a class="thumbnail" href="#thumb"><img src="../assets/img/profile/<?= $newProfil ?>"
+                                    id="uploaded_image" class="img-responsive rounded-circle" />
+                                <div class="icon-profile">
+                                    <i class="bi bi-arrow-right-circle"></i>
+                                </div>
+                                <span><img src="../assets/img/profile/<?= $newProfil ?>" /></span>
+                            </a>
+                        </div>
 
                         <?php } else { ?>
-                        <img src="../assets/img/icons/<?= $_SESSION["profil"] ?>" id="uploaded_image"
-                            class="img-responsive rounded-circle" />
+                        <div class="profile-picture">
+                            <a class="thumbnail" href="#thumb"><img src="../assets/img/icons/<?= $_SESSION["profil"] ?>"
+                                    id="uploaded_image" class="img-responsive rounded-circle" />
+                                <div class="icon-profile">
+                                    <i class="bi bi-arrow-right-circle"></i>
+                                </div>
+                                <span><img src="../assets/img/icons/<?= $_SESSION["profil"] ?>" /></span>
+                            </a>
+                        </div>
                         <?php } ?>
                         <div class="ps-3">
                             <span class="akun"> Nama : <?= ucwords($nama_yatim) ?>
