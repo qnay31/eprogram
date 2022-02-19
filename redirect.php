@@ -3,6 +3,8 @@
 error_reporting(0);
 
 require "function.php";
+$date   = date("Y-m-d H:i:s");
+$ip     = get_client_ip();
 
 $page   = $_GET["toAction"];
 $user   = $_GET["user"];
