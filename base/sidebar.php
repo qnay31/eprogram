@@ -44,6 +44,8 @@
             </a>
         </li>
 
+        <?php } elseif ($_SESSION["id_pengurus"] == "admin_web") { ?>
+
         <?php } else { ?>
         <li class="nav-item">
             <a class="nav-link collapsed" href="<?= $_SESSION["username"] ?>.php?id_perkembangan=perkembanganYatim">
@@ -55,7 +57,7 @@
 
         <!-- End Database Nav -->
 
-        <?php if ($_SESSION["id_pengurus"] == "ketua_yayasan" || $_SESSION["id_pengurus"] == "kepala_program" || $_SESSION["id_pengurus"] == "kepala_cabang") { ?>
+        <?php if ($_SESSION["id_pengurus"] == "ketua_yayasan" || $_SESSION["id_pengurus"] == "kepala_program" || $_SESSION["id_pengurus"] == "kepala_cabang" || $_SESSION["id_pengurus"] == "admin_web") { ?>
         <?php } else { ?>
         <?php if ($_GET["id_forms"] == "forms_laporan" || $_GET["id_forms"] == "edit_perkembangan") { ?>
         <li class="nav-item">
@@ -88,7 +90,11 @@
         <?php } ?>
 
         <!-- End Forms Nav -->
+        <?php if ($_SESSION["id_pengurus"] == "admin_web") { ?>
+
+        <?php } else { ?>
         <li class="nav-heading">Pages</li>
+        <?php } ?>
 
         <?php if ($_GET["id_profil"] == "myProfil") { ?>
         <li class="nav-item">

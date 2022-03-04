@@ -333,4 +333,67 @@ WHERE id = '$id' ");
 return mysqli_affected_rows($conn);
 }
 
+// kritik dan saran
+function kritikSaran($data)
+{
+global $conn;
+
+$id = htmlspecialchars(mysqli_real_escape_string($conn, $data["id"]));
+$nama = htmlspecialchars(mysqli_real_escape_string($conn, $data["nama"]));
+$saran = htmlspecialchars(mysqli_real_escape_string($conn, $data["saran"]));
+$date = date("Y-m-d H:i:s");
+
+$query = mysqli_query($conn, "SELECT saran FROM kritiksaran WHERE saran = '$saran' AND nama = '$nama' ");
+
+if (mysqli_fetch_assoc($query)) {
+
+echo "<script>
+alert('Saran sudah ada');
+</script>";
+
+return false;
+}
+
+$result = mysqli_query($conn, "INSERT INTO kritiksaran VALUES('', '$id', '$nama', '$date', '$saran', '', '')");
+
+return mysqli_affected_rows($conn);
+
+}
+
+// edit saran
+function editSaran($data)
+{
+global $conn;
+
+$id = htmlspecialchars(mysqli_real_escape_string($conn, $data["id"]));
+$saran = htmlspecialchars(mysqli_real_escape_string($conn, $data["saran"]));
+
+$result = mysqli_query($conn,
+"UPDATE kritiksaran SET
+`saran` = '$saran'
+WHERE `id` = '$id'");
+
+return mysqli_affected_rows($conn);
+
+}
+
+// balas saran
+function balasSaran($data)
+{
+global $conn;
+
+$id = htmlspecialchars(mysqli_real_escape_string($conn, $data["id"]));
+$balasan = htmlspecialchars(mysqli_real_escape_string($conn, $data["balasan"]));
+$date = date("Y-m-d H:i:s");
+
+$result = mysqli_query($conn,
+"UPDATE kritiksaran SET
+`balasan` = '$balasan',
+`tgl_balasan` = '$date'
+WHERE `id` = '$id'");
+
+return mysqli_affected_rows($conn);
+
+}
+
 ?>

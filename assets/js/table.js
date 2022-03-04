@@ -4,8 +4,24 @@ $(document).ready(function () {
         $(this).find('form').trigger('reset');
     });
 
+    $("#modalLaporan").on('hidden.bs.modal', function () {
+        $(this).find('form').trigger('reset');
+    });
+
     $("#nama").on('hidden.bs.modal', function () {
         $(this).find('form').trigger('reset');
+    });
+
+    $('.show').click(function () {
+        var toggleId= 'menu' + $(this).data("id")
+        // console.log(toggleId);
+        $('.' + toggleId).slideToggle();
+    });
+
+    $('.showEdit').click(function () {
+        var toggleId= 'menuEdit' + $(this).data("id")
+        // console.log(toggleId);
+        $('.' + toggleId).slideToggle();
     });
 
     var $modal = $('#modal');
@@ -316,6 +332,162 @@ $(document).ready(function () {
                 show: false
             },
             targets: [3]
+        }],
+    });
+
+    // data akun
+    $('#tabel-data_akun').DataTable({
+        "scrollX": true,
+        "processing": true,
+        "serverSide": false,
+        "scrollCollapse": true,
+        deferRender: true,
+        dom: 'Plfrtip',
+        "lengthMenu": [
+            [10, 25, 50, 100, 1000000],
+            [10, 25, 50, 100, "All"]
+        ],
+        "ajax": "../data/data_akun.php",
+        // "autoWidth": true,
+        columnDefs: [{
+            "targets": 0,
+            "render": function (data, type, row, meta) {
+                var no = meta.row + meta.settings._iDisplayStart + 1;
+                return "<center>" + no + "</center>"
+            }
+        }, {
+            targets: 1,
+            width: 120,
+            "render": function (data) {
+                return Capitalize(data);
+            }
+        }, {
+            targets: 2,
+            width: 150,
+            "render": function (data) {
+                return Capitalize(data);
+            }
+        }, {
+            targets: 3,
+            width: 80,
+            "render": function (data) {
+                return "<center>"+data+"</center>";
+            }
+        }, {
+            targets: 4,
+            width: 150
+        }, {
+            targets: 5,
+            width: 150
+        }, {
+            targets: 6,
+            width: 150,
+            "render": function (data) {
+                var btn = "<center><a href=\"../models/base_admin/hapus_akun.php?id_unik=" + data + "\" onclick=\"return confirm('Data akan dihapus?')\" class=\"btn btn-danger btn-xs\"><i class=\"bi bi-trash\"></i></a></center>"
+                return btn;
+            }
+        }, {
+            searchPanes: {
+                show: true,
+                initCollapsed: true,
+                orderable: false
+            },
+            targets: [2]
+        }, {
+            searchPanes: {
+                show: false
+            },
+            targets: [1, 3, 4, 5]
+        }],
+    });
+
+    // data yatim
+    $('#tabel-data_yatim').DataTable({
+        "scrollX": true,
+        "processing": true,
+        "serverSide": false,
+        "scrollCollapse": true,
+        deferRender: true,
+        dom: 'Plfrtip',
+        "lengthMenu": [
+            [10, 25, 50, 100, 1000000],
+            [10, 25, 50, 100, "All"]
+        ],
+        "ajax": "../data/data_yatim.php",
+        // "autoWidth": true,
+        columnDefs: [{
+            "targets": 0,
+            "render": function (data, type, row, meta) {
+                var no = meta.row + meta.settings._iDisplayStart + 1;
+                return "<center>" + no + "</center>"
+            }
+        }, {
+            targets: 1,
+            width: 120,
+            "render": function (data) {
+                return Capitalize(data);
+            }
+        }, {
+            targets: 2,
+            width: 150,
+            "render": function (data) {
+                var btn = "<center><a href=\"../models/base_admin/hapus_yatim.php?id_unik=" + data + "\" onclick=\"return confirm('Data akan dihapus?')\" class=\"btn btn-danger btn-xs\"><i class=\"bi bi-trash\"></i></a></center>"
+                return btn;
+            }
+        }, {
+            searchPanes: {
+                show: true,
+                initCollapsed: true,
+                orderable: false
+            },
+            targets: [1]
+        }, {
+            searchPanes: {
+                show: false
+            },
+            targets: [2]
+        }],
+    });
+
+    $('#tabel-adminLog').DataTable({
+        "scrollX": true,
+        "processing": true,
+        "serverSide": true,
+        "scrollCollapse": true,
+        deferRender: true,
+        dom: 'lfrtip',
+        buttons: [{
+                extend: 'excelHtml5',
+                footer: true
+            },
+            'colvis'
+        ],
+        "lengthMenu": [
+            [10, 25, 50, 100, 1000000],
+            [10, 25, 50, 100, "All"]
+        ],
+        "ajax": "../data/data_log.php",
+        "order": [
+            [4, "desc"]
+        ],
+        // "autoWidth": true,
+        columnDefs: [{
+            "targets": 0,
+            "render": function (data) {
+                var btn = "<center><a href=\"../models/base_admin/hapus_log.php?id_unik=" + data + "\" onclick=\"return confirm('Hapus log history ini?')\" class=\"btn btn-danger btn-xs\"><i class=\"bi bi-trash\"></i></a></center>"
+                return btn;
+            }
+        }, {
+            "targets": 1,
+            "render": function (data) {
+                return Capitalize(data);
+            }
+        }, {
+            targets: [4],
+            orderData: [0, 4]
+        }, {
+            targets: [5],
+            orderData: [1, 5]
         }],
     });
 

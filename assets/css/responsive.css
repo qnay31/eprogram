@@ -19,6 +19,7 @@
     .profile .nav-item,
     .revenue-card .akun,
     .customers-card .akun,
+    .saranBalasan,
     .viewData,
     #akunMedia .btn-danger,
     .overlay .text,
@@ -80,6 +81,7 @@
     .buttons-excel,
     .buttons-collection,
     .profile .nav-item,
+    .saranBalasan,
     .revenue-card .akun,
     .viewData,
     .customers-card .akun,
@@ -130,6 +132,7 @@
     .profile .nav-item,
     .revenue-card .akun,
     .customers-card .akun,
+    .saranBalasan,
     .viewData,
     #akunMedia .btn-danger,
     .overlay .text,
@@ -358,4 +361,26 @@
 .delete-profil .bi {
     font-size: 1.3em;
     color: red;
+}
+
+.saranMasukan {
+    padding: 0 14px;
+    width: 100%;
+}
+
+.textName {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 220px;
+}
+
+.editLaporanSaran {
+    display: flex;
+    justify-content: space-around;
+    text-decoration: underline;
+}
+
+.notification-item.saranBalasan {
+    background-color: #eff2fa;
 }

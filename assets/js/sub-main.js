@@ -22,6 +22,10 @@ document.addEventListener("DOMContentLoaded", function() {
     } ).mount();
 });
 
+$('.dropdown-menu.ketua-yayasan').on('click', function (e) {
+    e.stopPropagation();
+});
+
 $(".toggle-password").click(function () {
 
     $(this).toggleClass("fa-eye fa-eye-slash");
