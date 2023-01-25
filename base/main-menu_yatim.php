@@ -88,8 +88,7 @@ if ($_GET["id_profil"] == "") {
 
                                     <?php } ?>
 
-                                    <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image"
-                                        class="img-responsive rounded-circle" />
+                                    <img src="../assets/img/profile/<?= $newProfil ?>" id="uploaded_image" class="img-responsive rounded-circle" />
                                     <?php } else { ?>
                                     <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
                                     <div class="icon-image">
@@ -98,15 +97,13 @@ if ($_GET["id_profil"] == "") {
 
                                     <?php } ?>
 
-                                    <img src="../assets/img/icons/<?= $profil ?>" id="uploaded_image"
-                                        class="img-responsive rounded-circle" />
+                                    <img src="../assets/img/icons/<?= $profil ?>" id="uploaded_image" class="img-responsive rounded-circle" />
                                     <?php } ?>
                                     <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
                                     <div class="overlay">
                                         <div class="text">Ubah Foto</div>
                                     </div>
-                                    <input type="file" name="image" class="image" id="upload_image" style="display:none"
-                                        accept=".jpg,.jpeg,.png">
+                                    <input type="file" name="image" class="image" id="upload_image" style="display:none" accept=".jpg,.jpeg,.png">
 
                                     <?php } else { ?>
 
@@ -117,21 +114,17 @@ if ($_GET["id_profil"] == "") {
 
                         <?php if ($nums === 1 && $_SESSION["id_pengurus"] == "kepala_program") { ?>
                         <div class="delete-profil">
-                            <a href="../profil/hapus_fotoProfil.php?id_unik=<?= $_SESSION["id_yatim"] ?>"
-                                onclick="return confirm('Hapus foto profil?!')">
-                                <i class="bi bi-trash" data-bs-toggle="tooltip" data-bs-placement="right"
-                                    title="Hapus Foto"></i>
+                            <a href="../profil/hapus_fotoProfil.php?id_unik=<?= $_SESSION["id_yatim"] ?>" onclick="return confirm('Hapus foto profil?!')">
+                                <i class="bi bi-trash" data-bs-toggle="tooltip" data-bs-placement="right" title="Hapus Foto"></i>
                             </a>
                         </div>
                         <?php } ?>
-                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalLabel">Atur gambar sebelum diupload</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <div class="img-container">
@@ -146,8 +139,7 @@ if ($_GET["id_profil"] == "") {
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-bs-dismiss="modal">Kembali</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kembali</button>
                                         <button type="button" class="btn btn-primary" id="crop">Crop</button>
                                     </div>
                                 </div>
@@ -165,18 +157,15 @@ if ($_GET["id_profil"] == "") {
                                 <h5 class="card-title">Profile Details
                                     <?php if ($_SESSION["id_pengurus"] == "kepala_program") { ?>
                                     <a href="" data-bs-toggle="modal" data-bs-target="#nama">
-                                        <i class="bi bi-pencil-square" data-bs-toggle="tooltip"
-                                            data-bs-placement="right" title="Ubah Profil"></i>
+                                        <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-placement="right" title="Ubah Profil"></i>
                                     </a>
                                     <?php } ?>
-                                    <div class="modal fade" id="nama" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                        aria-hidden="true">
+                                    <div class="modal fade" id="nama" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalLabel">Ubah Profil</h5>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                        aria-label="Close"></button>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                 </div>
                                                 <div class="modal-body">
                                                     <form action="" method="post">
@@ -185,21 +174,18 @@ if ($_GET["id_profil"] == "") {
                                                                 Data Yatim
                                                             </div>
                                                             <input type="hidden" name="id" value="<?= $dYatim["id"] ?>">
-                                                            <input type="hidden" name="link"
-                                                                value="<?= $dYatim["nomor_id"] ?>">
-                                                            <input type="text" class="form-control" name="nama"
-                                                                value="<?= ucwords($dYatim["nama_yatim"]) ?>" readonly>
+                                                            <input type="hidden" name="link" value="<?= $dYatim["nomor_id"] ?>">
+                                                            <input type="text" class="form-control" name="nama" value="<?= ucwords($dYatim["nama_yatim"]) ?>"
+                                                                readonly>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Nama Terbaru
                                                             </div>
-                                                            <input type="text" class="form-control" name="namaNew"
-                                                                placeholder="nama yatim terbaru"
-                                                                value="<?= ucwords($dYatim["nama_yatim"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off"
-                                                                required
+                                                            <input type="text" class="form-control" name="namaNew" placeholder="nama yatim terbaru"
+                                                                value="<?= ucwords($dYatim["nama_yatim"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off" required
                                                                 oninvalid="this.setCustomValidity('Nama Lengkap tidak boleh kosong')"
                                                                 oninput="this.setCustomValidity('')">
 
@@ -209,10 +195,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Alamat
                                                             </div>
-                                                            <input type="text" class="form-control" name="alamat"
-                                                                placeholder="alamat yatim"
-                                                                value="<?= ucwords($dYatim["alamat"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off">
+                                                            <input type="text" class="form-control" name="alamat" placeholder="alamat yatim"
+                                                                value="<?= ucwords($dYatim["alamat"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off">
 
                                                         </div>
 
@@ -220,11 +205,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Tempat Lahir
                                                             </div>
-                                                            <input type="text" class="form-control" name="tempatLahir"
-                                                                placeholder="tempat lahir yatim"
-                                                                value="<?= ucwords($dYatim["tempatLahir"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off"
-                                                                required
+                                                            <input type="text" class="form-control" name="tempatLahir" placeholder="tempat lahir yatim"
+                                                                value="<?= ucwords($dYatim["tempatLahir"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off" required
                                                                 oninvalid="this.setCustomValidity('Tempat lahir tidak boleh kosong')"
                                                                 oninput="this.setCustomValidity('')">
 
@@ -234,11 +217,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Tanggal Lahir
                                                             </div>
-                                                            <input type="date" class="form-control" name="tanggalLahir"
-                                                                placeholder="tanggal lahir yatim"
-                                                                value="<?= ucwords($dYatim["tgl_lahir"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off"
-                                                                required
+                                                            <input type="date" class="form-control" name="tanggalLahir" placeholder="tanggal lahir yatim"
+                                                                value="<?= ucwords($dYatim["tgl_lahir"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off" required
                                                                 oninvalid="this.setCustomValidity('Tanggal lahir tidak boleh kosong')"
                                                                 oninput="this.setCustomValidity('')">
 
@@ -248,10 +229,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Nama Ibu
                                                             </div>
-                                                            <input type="text" class="form-control" name="namaIbu"
-                                                                placeholder="nama ibu yatim"
-                                                                value="<?= ucwords($dYatim["nama_ibu"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off">
+                                                            <input type="text" class="form-control" name="namaIbu" placeholder="nama ibu yatim"
+                                                                value="<?= ucwords($dYatim["nama_ibu"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off">
 
                                                         </div>
 
@@ -259,10 +239,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Nama Ayah (Alm)
                                                             </div>
-                                                            <input type="text" class="form-control" name="namaAyah"
-                                                                placeholder="nama ayah yatim"
-                                                                value="<?= ucwords($dYatim["nama_ayah"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off">
+                                                            <input type="text" class="form-control" name="namaAyah" placeholder="nama ayah yatim"
+                                                                value="<?= ucwords($dYatim["nama_ayah"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off">
 
                                                         </div>
 
@@ -270,10 +249,9 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Nama Sekolah
                                                             </div>
-                                                            <input type="text" class="form-control" name="sekolah"
-                                                                placeholder="sekolah yatim"
-                                                                value="<?= ucwords($dYatim["asal_sekolah"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off">
+                                                            <input type="text" class="form-control" name="sekolah" placeholder="sekolah yatim"
+                                                                value="<?= ucwords($dYatim["asal_sekolah"]) ?>" style="text-transform: capitalize;"
+                                                                autocomplete="off">
 
                                                         </div>
 
@@ -281,22 +259,18 @@ if ($_GET["id_profil"] == "") {
                                                             <div id="disabledSelect" class="form-text mb-2">
                                                                 Kelas
                                                             </div>
-                                                            <input type="text" class="form-control" name="kelas"
-                                                                placeholder="kelas yatim"
-                                                                value="<?= ucwords($dYatim["kelas"]) ?>"
-                                                                style="text-transform: capitalize;" autocomplete="off">
+                                                            <input type="text" class="form-control" name="kelas" placeholder="kelas yatim"
+                                                                value="<?= ucwords($dYatim["kelas"]) ?>" style="text-transform: capitalize;" autocomplete="off">
 
                                                         </div>
 
                                                         <div class="button">
-                                                            <input type="submit" name="ubah_profil"
-                                                                class="btn btn-primary w-100" value="Simpan Data">
+                                                            <input type="submit" name="ubah_profil" class="btn btn-primary w-100" value="Simpan Data">
                                                         </div>
                                                     </form>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary"
-                                                        data-bs-dismiss="modal">Batal</button>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -419,19 +393,16 @@ if ($_GET["id_profil"] == "") {
                             <h5 class="card-title">PERKEMBANGAN YATIM
                                 <?php if ($_SESSION["id_pengurus"] == "guru") { ?>
                                 <a href="" data-bs-toggle="modal" data-bs-target="#laporan">
-                                    <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-placement="right"
-                                        title="Tambah Laporan"></i>
+                                    <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-placement="right" title="Tambah Laporan"></i>
                                 </a>
 
                                 <!-- Modal -->
-                                <div class="modal fade" id="laporan" tabindex="-1" aria-labelledby="exampleModalLabel"
-                                    aria-hidden="true">
+                                <div class="modal fade" id="laporan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Perkembangan Yatim</h5>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body" style="font-family: Open Sans, sans-serif;">
                                                 <form action="" method="post" class="user">
@@ -440,10 +411,8 @@ if ($_GET["id_profil"] == "") {
                                                             Nama Yatim
                                                         </div>
                                                         <input type="hidden" name="id" value="<?= $_SESSION["id"] ?>">
-                                                        <input type="hidden" name="link"
-                                                            value="<?= $_SESSION["id_pengurus"] ?>">
-                                                        <input type="text" class="form-control"
-                                                            style="text-transform: capitalize;" name="yatim"
+                                                        <input type="hidden" name="link" value="<?= $_SESSION["id_pengurus"] ?>">
+                                                        <input type="text" class="form-control" style="text-transform: capitalize;" name="yatim"
                                                             value="<?= $dYatim["nama_yatim"] ?>" readonly>
                                                     </div>
 
@@ -451,24 +420,20 @@ if ($_GET["id_profil"] == "") {
                                                         <div id="disabledSelect" class="form-text mb-2">
                                                             Perkembangan
                                                         </div>
-                                                        <input type="text" class="form-control" name="perkembangan"
-                                                            placeholder="perkembangan yatim"
-                                                            style="text-transform: capitalize;" autocomplete="off"
-                                                            required
+                                                        <input type="text" class="form-control" name="perkembangan" placeholder="perkembangan yatim"
+                                                            style="text-transform: capitalize;" autocomplete="off" required
                                                             oninvalid="this.setCustomValidity('Nama yatim tidak boleh kosong')"
                                                             oninput="this.setCustomValidity('')">
 
                                                     </div>
 
                                                     <div class="button">
-                                                        <input type="submit" name="inputLaporan"
-                                                            class="btn btn-primary w-100" value="Laporkan">
+                                                        <input type="submit" name="inputLaporan" class="btn btn-primary w-100" value="Laporkan">
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Batal</button>
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                                             </div>
                                         </div>
                                     </div>
